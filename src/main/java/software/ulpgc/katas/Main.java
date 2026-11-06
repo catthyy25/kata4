@@ -9,6 +9,7 @@ import software.ulpgc.katas.arquitecture.ports.Input;
 import software.ulpgc.katas.arquitecture.ports.Output;
 import software.ulpgc.katas.arquitecture.usecases.CalculateFibonacciSeriesUseCase;
 import software.ulpgc.katas.infrastructure.adapters.ContextInput;
+import software.ulpgc.katas.infrastructure.adapters.GsonSeriesSerializer;
 
 public class Main {
     static void main() {
@@ -21,7 +22,7 @@ public class Main {
 
     private static void fibonacci(Context context){
         Input input = new ContextInput(context);
-        Output output = new CalculateFibonacciSeriesUseCase().execute(input);
+        Output output = new CalculateFibonacciSeriesUseCase(new GsonSeriesSerializer()).execute(input);
         context.result(output.result());
     }
 
