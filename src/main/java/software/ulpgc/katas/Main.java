@@ -26,16 +26,4 @@ public class Main {
         context.result(output.result());
     }
 
-    private static int[] fibonacci(int n){
-        int[] values = new int[n];
-        int a = 0;
-        int b = 1;
-        for (int i = 0; i < n; i++){
-            values[i] = a;
-            int c = a;
-            a = b;
-            b += c;
-        }
-        return values;
-    }
 }

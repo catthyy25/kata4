@@ -1,11 +1,12 @@
 package software.ulpgc.katas.arquitecture.usecases;
 
+import software.ulpgc.katas.arquitecture.UseCase;
 import software.ulpgc.katas.arquitecture.domain.Series;
 import software.ulpgc.katas.arquitecture.ports.Input;
 import software.ulpgc.katas.arquitecture.ports.Output;
 import software.ulpgc.katas.arquitecture.ports.SeriesSerializer;
 
-public class CalculateFibonacciSeriesUseCase {
+public class CalculateFibonacciSeriesUseCase implements UseCase {
     private final SeriesSerializer serializer;
 
     public CalculateFibonacciSeriesUseCase(SeriesSerializer serializer) {
