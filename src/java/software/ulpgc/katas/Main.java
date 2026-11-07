@@ -5,6 +5,10 @@ import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
 import io.javalin.http.Context;
 import org.jetbrains.annotations.NotNull;
+import software.ulpgc.katas.arquitecture.ports.Input;
+import software.ulpgc.katas.arquitecture.ports.Output;
+import software.ulpgc.katas.arquitecture.usecases.CalculateFibonacciSeriesUseCase;
+import software.ulpgc.katas.infrastructure.adapters.ContextInput;
 
 public class Main {
     static void main() {
@@ -16,8 +20,9 @@ public class Main {
     }
 
     private static void fibonacci(Context context) {
-        int n = Integer.parseInt(context.queryParam("n"));
-        context.result(new Gson().toJson(fibonacci(n)));
+        Input input = new ContextInput(context);
+        Output output = new CalculateFibonacciSeriesUseCase().execute(input);
+        context.result(output.result());
     }
 
     private static String fibonacci(String n) {
